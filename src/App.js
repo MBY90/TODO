@@ -12,6 +12,7 @@ function Todo({ todo, index, completeTodo, removeTodo }) {
       <div>
         <button onClick={() => completeTodo(index)}>Complete</button>
         <button onClick={() => removeTodo(index)}>x</button>
+ 
       </div>
     </div>
   );
@@ -42,15 +43,15 @@ function TodoForm({ addTodo }) {
 function App() {
   const [todos, setTodos] = useState([
     {
-      text: "Learn about React",
+      text: "Learn about React Hooks",
       isCompleted: false
     },
     {
-      text: "Meet friend for lunch",
+      text: "search and unterstand todolist app in internet",
       isCompleted: false
     },
     {
-      text: "Build really cool todo app",
+      text: "Go to the other CP ",
       isCompleted: false
     }
   ]);
