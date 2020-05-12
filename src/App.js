@@ -12,7 +12,10 @@ function Todo({ todo, index, completeTodo, removeTodo ,editTodo}) {
       <div>
         <button onClick={() => completeTodo(index)}>Complete</button>
         <button onClick={() => removeTodo(index)}>x</button>
-        <button onClick={() => editTodo(index)}>Edit</button>
+       <form>
+       <input type="text" className="input" name="edit" id="edit"/>
+         <button onClick={() => editTodo(index,document.getElementById('edit').value)}>Edit</button>
+         </form>
       </div>
     </div>
   );
@@ -42,6 +45,7 @@ function TodoForm({ addTodo }) {
   );
 }
 
+
 function App() {
   const [todos, setTodos] = useState([
     {
@@ -62,7 +66,7 @@ function App() {
     const newTodos = [...todos, { text }];
     setTodos(newTodos);
   };
-  const editTodo = index =>e => {
+  const editTodo = (index, text)=>e => {
     const newTodos = [...todos];
     newTodos[index]=e.target.text;
     setTodos(newTodos);
