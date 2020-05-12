@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 
-function Todo({ todo, index, completeTodo, removeTodo }) {
+function Todo({ todo, index, completeTodo, removeTodo ,editTodo}) {
   return (
     <div
       className="todo"
@@ -12,7 +12,7 @@ function Todo({ todo, index, completeTodo, removeTodo }) {
       <div>
         <button onClick={() => completeTodo(index)}>Complete</button>
         <button onClick={() => removeTodo(index)}>x</button>
-        
+        <button onClick={() => editTodo(index)}>Edit</button>
       </div>
     </div>
   );
@@ -62,6 +62,11 @@ function App() {
     const newTodos = [...todos, { text }];
     setTodos(newTodos);
   };
+  const editTodo = index =>e => {
+    const newTodos = [...todos];
+    newTodos[index]=e.target.text;
+    setTodos(newTodos);
+  };
 
   const completeTodo = index => {
     const newTodos = [...todos];
@@ -85,6 +90,7 @@ function App() {
             todo={todo}
             completeTodo={completeTodo}
             removeTodo={removeTodo}
+            editTodo={editTodo}
           />
         ))}
         <TodoForm addTodo={addTodo} />
