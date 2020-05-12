@@ -12,7 +12,7 @@ function Todo({ todo, index, completeTodo, removeTodo }) {
       <div>
         <button onClick={() => completeTodo(index)}>Complete</button>
         <button onClick={() => removeTodo(index)}>x</button>
- 
+        
       </div>
     </div>
   );
@@ -21,7 +21,7 @@ function Todo({ todo, index, completeTodo, removeTodo }) {
 function TodoForm({ addTodo }) {
   const [value, setValue] = useState("");
 
-  const handleSubmit = e => {
+  const handelclick = e => {
     e.preventDefault();
     if (!value) return;
     addTodo(value);
@@ -29,13 +29,15 @@ function TodoForm({ addTodo }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form  >
       <input
         type="text"
         className="input"
         value={value}
-        onChange={e => setValue(e.target.value)}
+       onChange={e => setValue(e.target.value)}
+        
       />
+      <button onClick={handelclick}>Add </button>
     </form>
   );
 }
@@ -47,7 +49,7 @@ function App() {
       isCompleted: false
     },
     {
-      text: "search and unterstand todolist app in internet",
+      text: "search and understand todolist app in internet",
       isCompleted: false
     },
     {
